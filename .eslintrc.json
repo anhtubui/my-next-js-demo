@@ -1,3 +1,88 @@
 {
-  "extends": "next/core-web-vitals"
+  "root": true,
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:react-hooks/recommended",
+    "plugin:tailwindcss/recommended"
+  ],
+  "plugins": [
+    "import",
+    "no-only-tests",
+    "@typescript-eslint",
+    "formatjs"
+  ],
+  "rules": {
+    "linebreak-style": [
+      0,
+      "windows"
+    ],
+    "no-duplicate-imports": 0,
+    "import/no-duplicates": 2,
+    "max-nested-callbacks": ["error", 10],
+    "no-unused-expressions": 0,
+    "import/no-unresolved": 2,
+    "no-undefined": 0,
+    "no-use-before-define": 0
+  },
+  "overrides": [
+    {
+      "files": ["**/*.tsx", "**/*.ts", "*.js"],
+      "extends": [
+        "plugin:@typescript-eslint/recommended"
+      ],
+      "rules": {
+        "camelcase": 0,
+        "no-shadow": 0,
+        "import/no-unresolved": 0, // ts handles this better
+        "@typescript-eslint/naming-convention": [
+          2,
+          {
+            "selector": "function",
+            "format": ["camelCase", "PascalCase"]
+          },
+          {
+            "selector": "variable",
+            "format": ["camelCase", "PascalCase", "UPPER_CASE"]
+          },
+          {
+            "selector": "parameter",
+            "format": ["camelCase", "PascalCase"],
+            "leadingUnderscore": "allow"
+          },
+          {
+            "selector": "typeLike",
+            "format": ["PascalCase"]
+          }
+        ],
+        "@typescript-eslint/no-non-null-assertion": 0,
+        "@typescript-eslint/no-unused-vars": [
+          2,
+          {
+            "vars": "all",
+            "args": "after-used"
+          }
+        ],
+        "@typescript-eslint/no-var-requires": 0,
+        "@typescript-eslint/no-empty-function": 0,
+        "@typescript-eslint/prefer-interface": 0,
+        "@typescript-eslint/explicit-function-return-type": 0,
+        "@typescript-eslint/explicit-module-boundary-types": 0,
+        "@typescript-eslint/indent": [
+          2,
+          4,
+          {
+            "SwitchCase": 0
+          }
+        ],
+        "@typescript-eslint/no-use-before-define": [
+          2,
+          {
+            "classes": false,
+            "functions": false,
+            "variables": false
+          }
+        ]
+      }
+    }
+  ]
 }
